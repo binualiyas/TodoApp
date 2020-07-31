@@ -17,9 +17,11 @@
 
 		<div class="container-fluid" id="wrapper">
 			
-			<div class="row">
+			<div class="row ">
+				
 				<div class="col-lg-4 col-lg-offset-4" id="content">
-					<h2 style="text-align: left;">WHAT DO YOU WANT TO DO TODAY?</h2>
+					<h1 style="margin-top: 0em; color: rgb(218, 31, 31); background-color: lightskyblue; font-weight: bold;">What-ToDo!</h1>
+					<h2 style="text-align: left; margin-bottom: 0px; margin-left: 5px;"><span style="font-style: italic;">Just note it here!</span></h2>
 					
 					<form action="{% url 'add' %}" method="POST" role="form">
 						{% csrf_token %}
@@ -54,9 +56,10 @@
 						{% for todo in todo_list %}
 							{% if todo.complete %}
 						
-							<li class="list-group-item todo-completed" style="text-decoration: line-through crimson" > {{ todo.text }}</li>
+							<li class="list-group-item todo-completed" style="text-decoration: line-through crimson" > {{ todo.text }} </li>
 							{% else %}
-							<a href="{% url 'complete' todo.id %}"><li class="list-group-item ">{{ todo.text }}</li></a>
+							<!--<a href="{% url 'complete' todo.id %}"><li class="list-group-item">{{ todo.text }}<br><span style="font-size: x-small;"></span> </li></a>-->
+							<li class="list-group-item"><a href="{% url 'complete' todo.id %}">{{ todo.text }}</a><br><span style="font-size: x-small;">{{ todo.date_added }}</span> </li>
 							{% endif %}
 						{% endfor %}
 					</ul>
