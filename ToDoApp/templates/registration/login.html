@@ -1,0 +1,26 @@
+{% extends 'ToDoApp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid" id="wrapper">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4" id="content">
+                {% if user.is_authenticated %}
+                <h4>You are alraeady logged in</h4>
+                <h4>Go back to<a href="{% url 'home' %}"> Home</a></h4>
+                {% else %}
+                <h1 style="margin-top: 0em; color: rgb(218, 31, 31); background-color: lightskyblue; font-weight: bold;">What-ToDo!</h1>
+                <h4>Login into your Account</h4>
+                <form  method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button>Login</button>
+                </form>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'ToDoApp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid" id="wrapper">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4" id="content">
+                <h1 style="margin-top: 0em; color: rgb(218, 31, 31); background-color: lightskyblue; font-weight: bold;">What-ToDo!</h1>
+                <h3>Hi, {{ user.username }}</h3>
+                <h4>You are successfully registered...</h4>
+                <h4><a href="{% url 'login' %}">Login</a> to use the App</h4>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}
